@@ -14,42 +14,42 @@ public class Solution {
         ListNode tempA=headA;
         ListNode tempB=headB;
         int countA=0;
-        int countB=0;
         while(tempA!=null){
             countA++;
             tempA=tempA.next;
         }
         tempA=headA;
-
+        int countB=0;
         while(tempB!=null){
             countB++;
             tempB=tempB.next;
         }
         tempB=headB;
-        int finalCount=0;
         if(countA>countB){
-            finalCount=countA-countB;
-            while(finalCount>0){
+            int diff=countA-countB;
+            while(diff>0){
                 tempA=tempA.next;
-                finalCount--;
+                diff--;
             }
         }
         else{
-            finalCount=countB-countA;
-            while(finalCount>0){
+            int diff=countB-countA;
+            while(diff>0){
                 tempB=tempB.next;
-                finalCount--;
+                diff--;
             }
         }
         while(tempA!=null && tempB!=null){
             if(tempA==tempB){
                 return tempA;
             }
-            tempA=tempA.next;
-            tempB=tempB.next;
+            else{
+                tempA=tempA.next;
+                tempB=tempB.next;
+            }
         }
         return null;
-        
+
         
     }
 }
